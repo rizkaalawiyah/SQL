@@ -1,0 +1,60 @@
+#Mengambil Seluruh Kolom dalam suatu Tabel
+SELECT * FROM ms_produk;
++---------+-------------+------------------------------------+--------+
+| no_urut | kode_produk | nama_produk                        | harga  |
++---------+-------------+------------------------------------+--------+
+|       1 | prod-01     | Kotak Pensil DQLab                 |  62500 |
+|       2 | prod-02     | Flashdisk DQLab 64 GB              |  55000 |
+|       3 | prod-03     | Gift Voucher DQLab 100rb           | 100000 |
+|       4 | prod-04     | Flashdisk DQLab 32 GB              |  40000 |
+|       5 | prod-05     | Gift Voucher DQLab 250rb           | 250000 |
+|       6 | prod-06     | Pulpen Multifunction + Laser DQLab |  92500 |
+|       7 | prod-07     | Tas Travel Organizer DQLab         |  48000 |
+|       8 | prod-08     | Gantungan Kunci DQLab              |  15800 |
+|       9 | prod-09     | Buku Planner Agenda DQLab          |  92000 |
+|      10 | prod-10     | Sticky Notes DQLab 500 sheets      |  55000 |
++---------+-------------+------------------------------------+--------+
+
+
+#Mengambil Satu Kolom dari Tabel
+select nama_produk from ms_produk;
+
+#Mengambil Lebih dari Satu Kolom dari Tabel
+SELECT nama_produk, harga FROM ms_produk;
+
+#Membatasi Pengambilan Jumlah Row Data
+SELECT nama_produk, harga FROM ms_produk LIMIT 5;
+
+#Penggunaan SELECT DISTINCT statement
+SELECT DISTINCT nama_customer, alamat FROM ms_pelanggan;
+
+#Menggunakan Prefix pada Nama Kolom
+SELECT ms_produk.kode_produk FROM ms_produk; 
+
+#Menggunakan Alias pada Kolom
+SELECT no_urut AS nomor, nama_produk AS nama FROM ms_produk;
+
+#Menghilangkan Keyword "AS"
+SELECT no_urut nomor, nama_produk nama FROM ms_produk;
+
+#Menggabungkan Prefix dan Alias
+SELECT ms_produk.harga as harga_jual FROM ms_produk;
+
+#Menggunakan Alias pada Tabel
+SELECT * FROM ms_produk t2;
+
+#Prefix dengan Alias Tabel
+SELECT t2.nama_produk, t2.harga FROM ms_produk t2;
+
+#Menggunakan WHERE
+SELECT * FROM ms_produk WHERE nama_produk='Tas Travel Organizer DQLab';
+
+#Menggunakan Operand OR
+SELECT * FROM ms_produk WHERE nama_produk = 'Gantungan Kunci DQLab' OR nama_produk = 'Tas Travel Organizer DQLab'OR nama_produk = 'Flashdisk DQLab 64 GB';
+
+#Filter untuk Angka
+select * from ms_produk where harga>50000;
+
+#Menggunakan Operand AND
+select * from ms_produk where nama_produk='Gantungan Kunci DQLab' AND harga<50000;
+
